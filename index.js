@@ -1,4 +1,4 @@
-var readlineSync = require("readlineSync");
+var readlineSync = require("readline-sync");
 const chalk = require("chalk");
 
 var score = 0;
