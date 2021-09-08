@@ -1,8 +1,8 @@
-var readlineSync = require("readline-sync");
-const chalk = require("chalk");
-
+var readlineSync = require('readline-sync');
+const chalk = require('chalk');
 var score = 0;
 
+//Array declaration 
 var questions = [
     {
         question:
@@ -41,13 +41,26 @@ var questions = [
         question: "What's my strength ?\n A:Family\n B:Friends\n C:Both A & B\n D:None\nEnter Answer: ",
         answer: "C"
     }
-]
+];
 
+var highScore = [
+    {
+        name: "Naveen",
+        score: 8
+    },
+    {
+        name: "Sri",
+        score: 7
+    }
+];
+
+// Color Line function
 function colorLine()
 {
     console.log(chalk.blue("-------------------------"));
 }
 
+//Welcome function
 function welcome()
 {
     console.log(chalk.bold.rgb(10, 50, 100)("Welcome to Do you know Naveen ? Quiz"));
@@ -56,6 +69,7 @@ function welcome()
     colorLine();
 }
 
+// Play rules function
 function rules()
 {
     console.log(chalk.bold.rgb(10, 50, 100)("Rules of the quiz ! "));
@@ -76,11 +90,11 @@ function userInterest()
             var userAnswer = readlineSync.question(chalk.red(question));
             if (userAnswer.toLowerCase() == answer.toLowerCase())
             {
-                console.log("your Answer is Right");
+                console.log(chalk.blue("your Answer is Right"));
                 score = score+1;
             }
             else {
-                console.log("your Answer is Wrong");
+                console.log(chalk.yellow("your Answer is Wrong"));
                 score = score;
             }
             console.log("Current Score: "+score);
@@ -95,6 +109,22 @@ function userInterest()
     else {
         console.log(chalk.yellow("Bye Bye, will see you later"));
         colorLine();
-    }      
-    
+    }       
 }
+
+function showScore ()
+{
+    console.log(chalk.bold.rgb(10, 50, 100)("Hey you socred: "+score));
+    console.log("Check out the high scores, if your there send me screenshot and i will update ");
+    for(var i=0; i<highScore.length; i++)
+    {
+        console.log(chalk.bold.rgb(10, 50, 100)(highScore[i].name, ": "+highScore[i].score));
+    }    
+}
+
+//calling functions
+colorLine();
+welcome();
+rules();
+userInterest();
+showScore();
