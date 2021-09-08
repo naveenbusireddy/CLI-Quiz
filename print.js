@@ -1,4 +1,4 @@
-var readlineSync = require(readline-sync);
-var userAnswer = readlineSync.question("Hello");
+// var readlineSync = require(readline-sync);
+// var userAnswer = readlineSync.question("Hello");
 
-console.log(userAnswer);
+console.log("Hello Welcom");
